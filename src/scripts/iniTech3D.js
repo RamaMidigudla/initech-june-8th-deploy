@@ -13,10 +13,10 @@ var threeDModel = (function () {
 
 
             /* Camera */
-            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.x = -14;
-            camera.position.y = 8;
-            camera.position.z = 16;
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.x = 10;
+            camera.position.y = 10;
+            camera.position.z = 10;
 
            this.initTrackballControls();
 
@@ -30,7 +30,7 @@ var threeDModel = (function () {
             progressBar.className  = 'spinner';
 
             var manager = new THREE.LoadingManager();
-            
+
             manager.onLoad = function () {
                container.removeChild(progressBar);
             };
@@ -38,9 +38,9 @@ var threeDModel = (function () {
             manager.onProgress = function () {
              container.appendChild(progressBar);
             };
-           
+
             var mtlLoader = new THREE.MTLLoader(manager);
-            
+
             mtlLoader.load(mtlUrl, function (materials) {
                 materials.preload();
                 var objLoader = new THREE.OBJLoader();
@@ -92,10 +92,11 @@ var threeDModel = (function () {
 
         },
 
-        
+
     }
 
 })(threeDModel | {})
+
 
 
 
